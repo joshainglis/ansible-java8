@@ -44,7 +44,9 @@
 
 - name: download java8 (Centos)
   command: "curl -LO 'http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm' -H 'Cookie: oraclelicense=accept-securebackup-cookie'"
-  creates: jdk-8u45-linux-x64.rpm
+  args:
+    chdir: ~/
+    creates: jdk-8u45-linux-x64.rpm
   when: ansible_os_family == 'RedHat'
 
 - name: install java8 (Centos)
